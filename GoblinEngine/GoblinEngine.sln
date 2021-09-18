@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GoblinEngine", "GoblinEngine\GoblinEngine.vcxproj", "{4D3AED3F-AE36-46F0-AD8A-34FEE87DCDB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Goblin", "Goblin\Goblin.csproj", "{C96C0BF5-83AE-4B3F-8526-868DDB34B232}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D3AED3F-AE36-46F0-AD8A-34FEE87DCDB6}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{4D3AED3F-AE36-46F0-AD8A-34FEE87DCDB6}.Debug|x64.ActiveCfg = Debug|x64
+		{4D3AED3F-AE36-46F0-AD8A-34FEE87DCDB6}.Debug|x64.Build.0 = Debug|x64
+		{4D3AED3F-AE36-46F0-AD8A-34FEE87DCDB6}.Debug|x86.ActiveCfg = Debug|Win32
+		{4D3AED3F-AE36-46F0-AD8A-34FEE87DCDB6}.Debug|x86.Build.0 = Debug|Win32
+		{4D3AED3F-AE36-46F0-AD8A-34FEE87DCDB6}.Release|Any CPU.ActiveCfg = Release|Win32
+		{4D3AED3F-AE36-46F0-AD8A-34FEE87DCDB6}.Release|x64.ActiveCfg = Release|x64
+		{4D3AED3F-AE36-46F0-AD8A-34FEE87DCDB6}.Release|x64.Build.0 = Release|x64
+		{4D3AED3F-AE36-46F0-AD8A-34FEE87DCDB6}.Release|x86.ActiveCfg = Release|Win32
+		{4D3AED3F-AE36-46F0-AD8A-34FEE87DCDB6}.Release|x86.Build.0 = Release|Win32
+		{C96C0BF5-83AE-4B3F-8526-868DDB34B232}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C96C0BF5-83AE-4B3F-8526-868DDB34B232}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C96C0BF5-83AE-4B3F-8526-868DDB34B232}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C96C0BF5-83AE-4B3F-8526-868DDB34B232}.Debug|x64.Build.0 = Debug|Any CPU
+		{C96C0BF5-83AE-4B3F-8526-868DDB34B232}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C96C0BF5-83AE-4B3F-8526-868DDB34B232}.Debug|x86.Build.0 = Debug|Any CPU
+		{C96C0BF5-83AE-4B3F-8526-868DDB34B232}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C96C0BF5-83AE-4B3F-8526-868DDB34B232}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C96C0BF5-83AE-4B3F-8526-868DDB34B232}.Release|x64.ActiveCfg = Release|Any CPU
+		{C96C0BF5-83AE-4B3F-8526-868DDB34B232}.Release|x64.Build.0 = Release|Any CPU
+		{C96C0BF5-83AE-4B3F-8526-868DDB34B232}.Release|x86.ActiveCfg = Release|Any CPU
+		{C96C0BF5-83AE-4B3F-8526-868DDB34B232}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3C955F85-8921-4547-B1BA-46901461CBE1}
+	EndGlobalSection
+EndGlobal
