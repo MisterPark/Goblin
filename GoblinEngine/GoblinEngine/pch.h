@@ -25,4 +25,6 @@
 #include "Enum.h"
 #include "Struct.h"
 
+using namespace GoblinEngine::DirectX;
+
 #endif //PCH_H

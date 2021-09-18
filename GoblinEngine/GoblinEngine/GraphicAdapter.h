@@ -9,6 +9,8 @@ namespace GoblinEngine
 		private:
 			IDXGIAdapter* adapter;
 		public:
+			GraphicAdapter(IntPtr unmanagedObject);
+			~GraphicAdapter();
 		};
 	}
 }

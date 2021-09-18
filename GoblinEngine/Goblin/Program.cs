@@ -1,6 +1,6 @@
-﻿using GoblinEngine.DirectX;
-using System;
+﻿using System;
 using System.Windows.Forms;
+using GoblinEngine.DirectX;
 
 namespace Goblin
 {
@@ -16,7 +16,7 @@ namespace Goblin
       Application.SetCompatibleTextRenderingDefault(false);
       Application.Run(new Form1());
 
-      Device device = new Device();
-     }
+      
+    }
   }
 }

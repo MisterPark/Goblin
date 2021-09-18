@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using GoblinEngine.DirectX;
 
 namespace Goblin
 {
@@ -15,6 +16,10 @@ namespace Goblin
     public Form1()
     {
       InitializeComponent();
+
+      GraphicFactory factory = new GraphicFactory();
+
+      GraphicAdapter adapter = factory.EnumAdapters(0);
     }
   }
 }
