@@ -13,13 +13,13 @@ namespace Goblin
 {
   public partial class Form1 : Form
   {
+    RenderSystem renderSystem;
+
     public Form1()
     {
       InitializeComponent();
 
-      GraphicFactory factory = new GraphicFactory();
-
-      GraphicAdapter adapter = factory.EnumAdapters(0);
+      renderSystem = new RenderSystem(panel1,true, false);
     }
   }
 }

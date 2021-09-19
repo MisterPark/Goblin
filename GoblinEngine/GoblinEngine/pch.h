@@ -19,6 +19,11 @@
 #include <dinput.h>
 #include <d3dcompiler.h>
 #include <directxmath.h>
+#include <dxgi1_2.h>
+
+using namespace System;
+using namespace System::Windows;
+using namespace System::Collections::Generic;
 
 #include "Define.h"
 

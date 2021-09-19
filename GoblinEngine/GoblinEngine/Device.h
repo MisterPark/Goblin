@@ -4,12 +4,16 @@ namespace GoblinEngine
 {
 	namespace DirectX
 	{
+		ref class DeviceContext;
+		ref class SwapChain;
+
 		public ref class Device
 		{
 		private:
 			ID3D11Device* device;
 		public:
-			Device();
+			Device(IntPtr unmanagedObject);
+			Device(DriverType driverType, FeatureLevel featureLevel,SwapChainDescription^ swapChainDescription, out SwapChain^% swapChain, out DeviceContext^% deviceContext);
 			~Device();
 
 			void CreateBuffer(GoblinEngine::DirectX::BufferDescription desc);
