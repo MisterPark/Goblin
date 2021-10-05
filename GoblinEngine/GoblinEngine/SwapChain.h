@@ -5,6 +5,8 @@ namespace GoblinEngine
 {
 	namespace DirectX
 	{
+		ref class Texture2D;
+
 		public ref class SwapChain
 		{
 		private:
@@ -12,6 +14,8 @@ namespace GoblinEngine
 		public:
 			SwapChain(IntPtr unmanagedObject);
 			~SwapChain();
+
+			Texture2D^ GetTexture2D(UINT buffer);
 		};
 
 	}

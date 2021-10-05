@@ -1,10 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="리소스 파일">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
     <Filter Include="DirectX">
       <UniqueIdentifier>{d4799bd6-e676-47a2-a75a-3cd5417ecc62}</UniqueIdentifier>
     </Filter>
@@ -23,11 +19,14 @@
     <Filter Include="PCH">
       <UniqueIdentifier>{d8fe4fd0-6924-4aaa-94a9-c68c06a0dd90}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource">
-      <UniqueIdentifier>{89b8c7a0-3fee-4c97-98f8-9d6eb853a8bd}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Common">
       <UniqueIdentifier>{cf16340c-e6e0-4e5a-afda-afbb9034c8b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectX\Class\Resource">
+      <UniqueIdentifier>{89b8c7a0-3fee-4c97-98f8-9d6eb853a8bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Inner">
+      <UniqueIdentifier>{6c663750-5e69-490c-8264-ca3fecc46796}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -39,9 +38,6 @@
     </ClInclude>
     <ClInclude Include="Device.h">
       <Filter>DirectX\Class</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Resource</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
       <Filter>PCH</Filter>
@@ -57,6 +53,11 @@
     </ClInclude>
     <ClInclude Include="DeviceContext.h">
       <Filter>DirectX\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture2D.h" />
+    <ClInclude Include="IResource.h" />
+    <ClInclude Include="DirectXWrapper.h">
+      <Filter>Inner</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -78,15 +79,8 @@
     <ClCompile Include="SwapChain.cpp">
       <Filter>DirectX\Class</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="app.rc">
-      <Filter>리소스 파일</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="app.ico">
-      <Filter>리소스 파일</Filter>
-    </Image>
+    <ClCompile Include="Texture2D.cpp" />
+    <ClCompile Include="IResource.cpp" />
+    <ClCompile Include="Struct.cpp" />
   </ItemGroup>
 </Project>

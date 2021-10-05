@@ -10,3 +10,8 @@ GoblinEngine::DirectX::DeviceContext::~DeviceContext()
 {
     deviceContext->Release();
 }
+
+void GoblinEngine::DirectX::DeviceContext::OMSetDepthStencilState(DepthStencilState state, UINT stencilRef)
+{
+    deviceContext->OMSetDepthStencilState(state.ToOrigin(), stencilRef);
+}

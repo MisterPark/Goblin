@@ -124,29 +124,28 @@
     <ClInclude Include="DeviceContext.h" />
     <ClInclude Include="DXGI.h" />
     <ClInclude Include="Enum.h" />
+    <ClInclude Include="IResource.h" />
+    <ClInclude Include="DirectXWrapper.h" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Resource.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="SwapChain.h" />
+    <ClInclude Include="Texture2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Device.cpp" />
     <ClCompile Include="DeviceContext.cpp" />
     <ClCompile Include="DXGI.cpp" />
+    <ClCompile Include="IResource.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Struct.cpp" />
     <ClCompile Include="SwapChain.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="app.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="app.ico" />
+    <ClCompile Include="Texture2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />

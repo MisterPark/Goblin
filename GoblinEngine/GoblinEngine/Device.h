@@ -6,6 +6,10 @@ namespace GoblinEngine
 	{
 		ref class DeviceContext;
 		ref class SwapChain;
+		ref struct Texture2DDescription;
+		ref class Texture2D;
+		ref class DepthStencilState;
+		ref class DepthStencilView;
 
 		public ref class Device
 		{
@@ -18,12 +22,12 @@ namespace GoblinEngine
 
 			void CreateBuffer(GoblinEngine::DirectX::BufferDescription desc);
 			void CreateTexture1D();
-			void CreateTexture2D();
+			Texture2D^ CreateTexture2D(Texture2DDescription desc);
 			void CreateTexture3D();
 			void CreateShaderResourceView();
 			void CreateUnorderedAccessView();
 			void CreateRenderTargetView();
-			void CreateDepthStencilView();
+			DepthStencilView^ CreateDepthStencilView(Texture2D^ resource, DepthStencilViewDescription desc);
 			void CreateInputLayout();
 			void CreateVertexShader();
 			void CreateGeometryShader();
@@ -34,7 +38,7 @@ namespace GoblinEngine
 			void CreateComputeShader();
 			void CreateClassLinkage();
 			void CreateBlendState();
-			void CreateDepthStencilState();
+			DepthStencilState^ CreateDepthStencilState(DepthStencilDescription desc);
 			void CreateRasterizerState();
 			void CreateSamplerState();
 			void CreateQuery();

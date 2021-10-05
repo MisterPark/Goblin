@@ -4,6 +4,8 @@ namespace GoblinEngine
 {
 	namespace DirectX
 	{
+		ref class DepthStencilState;
+
 		public ref class DeviceContext
 		{
 		private:
@@ -11,6 +13,8 @@ namespace GoblinEngine
 		public:
 			DeviceContext(IntPtr unmanagedObject);
 			~DeviceContext();
+
+			void OMSetDepthStencilState(DepthStencilState state, UINT stencilRef);
 		};
 	}
 }

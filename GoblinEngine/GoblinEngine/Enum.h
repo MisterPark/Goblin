@@ -235,5 +235,63 @@ namespace GoblinEngine
 			_12_1 = 0xc100
 
 		};
+
+		public enum class ResourceDimension : unsigned
+		{
+			Unknown,
+			Buffer,
+			Texture1D,
+			Texture2D,
+			Texture3D
+		};
+		/// <summary>
+		/// D3D11_COMPARISON_FUNC
+		/// </summary>
+		public enum class ComparisonType : unsigned
+		{
+			Never = 1,
+			Less,
+			Equal,
+			LessEqual,
+			Greater,
+			NotEqual,
+			GreaterEqual,
+			Always
+		};
+		/// <summary>
+		/// D3D11_DEPTH_WRITE_MASK
+		/// </summary>
+		public enum class DepthWriteMask : unsigned
+		{
+			Zero,
+			All
+		};
+		/// <summary>
+		/// D3D11_STENCIL_OP
+		/// </summary>
+		public enum class StencilOp : unsigned
+		{
+			Keep = 1,
+			Zero,
+			Replace,
+			IncrementSaturate,
+			DecrementSaturate,
+			Invert,
+			IncrementWrap,
+			DecrementWrap
+		};
+		/// <summary>
+		/// D3D11_DSV_DIMENSION
+		/// </summary>
+		public enum class DSVDimension : unsigned
+		{
+			Unknown,
+			Texture1D,
+			Texture1DArray,
+			Texture2D,
+			Texture2DArray,
+			Texture2DMS,
+			Texture2DMSArray,
+		};
 	}
 }

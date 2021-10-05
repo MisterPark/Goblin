@@ -2,7 +2,7 @@
 #include "Device.h"
 #include "DeviceContext.h"
 #include "SwapChain.h"
-
+#include "Texture2D.h"
 
 GoblinEngine::DirectX::Device::Device(IntPtr unmanagedObject)
 {
@@ -66,9 +66,28 @@ void GoblinEngine::DirectX::Device::CreateTexture1D()
     throw gcnew System::NotImplementedException();
 }
 
-void GoblinEngine::DirectX::Device::CreateTexture2D()
+Texture2D^ GoblinEngine::DirectX::Device::CreateTexture2D(Texture2DDescription desc)
 {
-    throw gcnew System::NotImplementedException();
+    ID3D11Texture2D* texture;
+    D3D11_TEXTURE2D_DESC textureDesc;
+    textureDesc.Width = desc.Width;
+    textureDesc.Height = desc.Height;
+    textureDesc.MipLevels = desc.MipLevels;
+    textureDesc.ArraySize = desc.ArraySize;
+    textureDesc.Format = (DXGI_FORMAT)desc.Format;
+    textureDesc.SampleDesc.Count = desc.SampleDesc->Count;
+    textureDesc.SampleDesc.Quality = desc.SampleDesc->Quality;
+    textureDesc.Usage = (D3D11_USAGE)desc.Usage;
+    textureDesc.BindFlags = desc.BindFlags;
+    textureDesc.CPUAccessFlags = desc.CPUAccessFlags;
+    textureDesc.MiscFlags = desc.MiscFlags;
+
+    if (FAILED(device->CreateTexture2D(&textureDesc, NULL, &texture)))
+    {
+        return nullptr;
+    }
+
+    return gcnew Texture2D((IntPtr)texture);
 }
 
 void GoblinEngine::DirectX::Device::CreateTexture3D()
@@ -91,9 +110,31 @@ void GoblinEngine::DirectX::Device::CreateRenderTargetView()
     throw gcnew System::NotImplementedException();
 }
 
-void GoblinEngine::DirectX::Device::CreateDepthStencilView()
+DepthStencilView^ GoblinEngine::DirectX::Device::CreateDepthStencilView(Texture2D^ resource, DepthStencilViewDescription desc)
 {
-    throw gcnew System::NotImplementedException();
+    ID3D11DepthStencilView* view;
+    D3D11_DEPTH_STENCIL_VIEW_DESC viewDesc;
+    viewDesc.Format = (DXGI_FORMAT)desc.Format;
+    viewDesc.ViewDimension = (D3D11_DSV_DIMENSION)desc.ViewDimension;
+    viewDesc.Flags = desc.Flags;
+    viewDesc.Texture1D.MipSlice = desc.Texture1D.MipSlice;
+    viewDesc.Texture1DArray.MipSlice = desc.Texture1DArray.MipSlice;
+    viewDesc.Texture1DArray.ArraySize = desc.Texture1DArray.ArraySize;
+    viewDesc.Texture1DArray.FirstArraySlice = desc.Texture1DArray.FirstArraySlice;
+    viewDesc.Texture2D.MipSlice = desc.Texture2D.MipSlice;
+    viewDesc.Texture2DArray.MipSlice = desc.Texture2DArray.MipSlice;
+    viewDesc.Texture2DArray.ArraySize = desc.Texture2DArray.ArraySize;
+    viewDesc.Texture2DArray.FirstArraySlice = desc.Texture2DArray.FirstArraySlice;
+    viewDesc.Texture2DMS.UnusedField_NothingToDefine = desc.Texture2DMS.UnusedField_NothingToDefine;
+    viewDesc.Texture2DMSArray.ArraySize = desc.Texture2DMSArray.ArraySize;
+    viewDesc.Texture2DMSArray.FirstArraySlice = desc.Texture2DMSArray.FirstArraySlice;
+
+    auto hr = device->CreateDepthStencilView(resource->ToOrigin(), &viewDesc, &view);
+    if (FAILED(hr))
+    {
+        return nullptr;
+    }
+    return gcnew DepthStencilView((IntPtr)view);
 }
 
 void GoblinEngine::DirectX::Device::CreateInputLayout()
@@ -146,9 +187,34 @@ void GoblinEngine::DirectX::Device::CreateBlendState()
     throw gcnew System::NotImplementedException();
 }
 
-void GoblinEngine::DirectX::Device::CreateDepthStencilState()
+DepthStencilState^ GoblinEngine::DirectX::Device::CreateDepthStencilState(DepthStencilDescription desc)
 {
-    throw gcnew System::NotImplementedException();
+    ID3D11DepthStencilState* state;
+    D3D11_DEPTH_STENCIL_DESC depthStencilDesc;
+    depthStencilDesc.DepthEnable = desc.DepthEnable;
+    depthStencilDesc.DepthWriteMask = (D3D11_DEPTH_WRITE_MASK)desc.DepthWriteMask;
+    depthStencilDesc.DepthFunc = (D3D11_COMPARISON_FUNC)desc.DepthFunc;
+
+    depthStencilDesc.StencilEnable = desc.StencilEnable;
+    depthStencilDesc.StencilReadMask = desc.StencilReadMask;
+    depthStencilDesc.StencilWriteMask = desc.StencilWriteMask;
+
+    depthStencilDesc.FrontFace.StencilFailOp = (D3D11_STENCIL_OP)desc.FrontFace->StencilFailOp;
+    depthStencilDesc.FrontFace.StencilDepthFailOp = (D3D11_STENCIL_OP)desc.FrontFace->StencilDepthFailOp;
+    depthStencilDesc.FrontFace.StencilPassOp = (D3D11_STENCIL_OP)desc.FrontFace->StencilPassOp;
+    depthStencilDesc.FrontFace.StencilFunc = (D3D11_COMPARISON_FUNC)desc.FrontFace->StencilFunc;
+
+    depthStencilDesc.BackFace.StencilFailOp = (D3D11_STENCIL_OP)desc.BackFace->StencilFailOp;
+    depthStencilDesc.BackFace.StencilDepthFailOp = (D3D11_STENCIL_OP)desc.BackFace->StencilDepthFailOp;
+    depthStencilDesc.BackFace.StencilPassOp = (D3D11_STENCIL_OP)desc.BackFace->StencilPassOp;
+    depthStencilDesc.BackFace.StencilFunc = (D3D11_COMPARISON_FUNC)desc.BackFace->StencilFunc;
+
+    auto hr = device->CreateDepthStencilState(&depthStencilDesc, &state);
+    if (FAILED(hr))
+    {
+        return nullptr;
+    }
+    return gcnew DepthStencilState((IntPtr)state);
 }
 
 void GoblinEngine::DirectX::Device::CreateRasterizerState()

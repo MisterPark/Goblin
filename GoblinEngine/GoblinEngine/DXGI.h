@@ -45,7 +45,6 @@ namespace GoblinEngine
 
 		};
 
-		
 	}
 }
 

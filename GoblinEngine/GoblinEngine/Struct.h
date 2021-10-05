@@ -107,5 +107,124 @@ namespace GoblinEngine
 			}
 		};
 
+		public ref struct Texture2DDescription
+		{
+		public:
+			property UINT Width;
+			property UINT Height;
+			property UINT MipLevels;
+			property UINT ArraySize;
+			property GraphicFormat Format;
+			property GraphicSampleDescription^ SampleDesc;
+			property Usage Usage;
+			property UINT BindFlags;
+			property UINT CPUAccessFlags;
+			property UINT MiscFlags;
+
+			Texture2DDescription()
+			{
+				SampleDesc = gcnew GraphicSampleDescription();
+			}
+		};
+		/// <summary>
+		/// D3D11_DEPTH_STENCILOP_DESC
+		/// </summary>
+		public ref struct DepthStencilOPDescription
+		{
+		public:
+			property StencilOp StencilFailOp;
+			property StencilOp StencilDepthFailOp;
+			property StencilOp StencilPassOp;
+			property ComparisonType StencilFunc;
+		};
+		/// <summary>
+		/// D3D11_DEPTH_STENCIL_DESC
+		/// </summary>
+		public ref struct DepthStencilDescription
+		{
+		public:
+			property BOOL DepthEnable;
+			property DepthWriteMask DepthWriteMask;
+			property ComparisonType DepthFunc;
+			property BOOL StencilEnable;
+			property UINT8 StencilReadMask;
+			property UINT8 StencilWriteMask;
+			property DepthStencilOPDescription^ FrontFace;
+			property DepthStencilOPDescription^ BackFace;
+
+			DepthStencilDescription()
+			{
+				FrontFace = gcnew DepthStencilOPDescription();
+				BackFace = gcnew DepthStencilOPDescription();
+			}
+		};
+
+
+		public ref class DepthStencilState : DirectXWrapper<ID3D11DepthStencilState>
+		{
+		public:
+			DepthStencilState(IntPtr unmanagedObject);
+		};
+
+
+		public struct DSVTexture1D
+		{
+			UINT MipSlice;
+		};
+
+		public struct DSVTexture1DArray
+		{
+			UINT MipSlice;
+			UINT FirstArraySlice;
+			UINT ArraySize;
+		};
+
+		public struct DSVTexture2D
+		{
+			UINT MipSlice;
+		};
+
+		public struct DSVTexture2DArray
+		{
+			UINT MipSlice;
+			UINT FirstArraySlice;
+			UINT ArraySize;
+		};
+
+		public struct DSVTexture2DMS
+		{
+			UINT UnusedField_NothingToDefine;
+		};
+
+		public struct DSVTexture2DMSArray
+		{
+			UINT FirstArraySlice;
+			UINT ArraySize;
+		};
+		/// <summary>
+		/// D3D11_DEPTH_STENCIL_VIEW_DESC
+		/// </summary>
+		public struct DepthStencilViewDescription
+		{
+			GraphicFormat Format;
+			DSVDimension ViewDimension;
+			UINT Flags;
+			union
+			{
+				DSVTexture1D Texture1D;
+				DSVTexture1DArray Texture1DArray;
+				DSVTexture2D Texture2D;
+				DSVTexture2DArray Texture2DArray;
+				DSVTexture2DMS Texture2DMS;
+				DSVTexture2DMSArray Texture2DMSArray;
+			};
+		};
+		
+		public ref class DepthStencilView : DirectXWrapper<ID3D11DepthStencilView>
+		{
+		public:
+			DepthStencilView(IntPtr unmaagedObject);
+		};
+
 	}
 }
