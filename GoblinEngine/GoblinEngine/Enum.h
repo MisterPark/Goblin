@@ -293,5 +293,20 @@ namespace GoblinEngine
 			Texture2DMS,
 			Texture2DMSArray,
 		};
+		/// <summary>
+		/// D3D11_RTV_DIMENSION
+		/// </summary>
+		public enum class RTVDimension :unsigned
+		{
+			Unknown,
+			Buffer,
+			Texture1D,
+			Texture1DArray,
+			Texture2D,
+			Texture2DArray,
+			Texture2DMS,
+			Texture2DMSArray,
+			Texture3D
+		};
 	}
 }

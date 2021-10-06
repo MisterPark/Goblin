@@ -24,7 +24,7 @@ System::Collections::Generic::List<ModeDescription^>^ GoblinEngine::DirectX::Gra
 	{
 		modeList = new DXGI_MODE_DESC[numModes];
 		output->GetDisplayModeList((DXGI_FORMAT)format, (UINT)mode, &numModes, modeList);
-		for (int i = 0; i < numModes; i++)
+		for (UINT i = 0; i < numModes; i++)
 		{
 			ModeDescription^ desc = gcnew ModeDescription();
 			desc->Width = modeList[i].Width;

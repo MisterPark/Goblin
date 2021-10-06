@@ -10,7 +10,7 @@ namespace GoblinEngine
 		public ref class SwapChain
 		{
 		private:
-			IDXGISwapChain* swapChain;
+			IDXGISwapChain* swapChain = nullptr;
 		public:
 			SwapChain(IntPtr unmanagedObject);
 			~SwapChain();

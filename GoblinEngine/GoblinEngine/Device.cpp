@@ -105,9 +105,9 @@ void GoblinEngine::DirectX::Device::CreateUnorderedAccessView()
     throw gcnew System::NotImplementedException();
 }
 
-void GoblinEngine::DirectX::Device::CreateRenderTargetView()
+RenderTargetView^ GoblinEngine::DirectX::Device::CreateRenderTargetView(IResource^ resource, RenderTargetViewDescription desc)
 {
-    throw gcnew System::NotImplementedException();
+  ID3D11Resource* _resource = resource->ToOrigin();
 }
 
 DepthStencilView^ GoblinEngine::DirectX::Device::CreateDepthStencilView(Texture2D^ resource, DepthStencilViewDescription desc)

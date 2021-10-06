@@ -54,11 +54,16 @@
     <ClInclude Include="DeviceContext.h">
       <Filter>DirectX\Class</Filter>
     </ClInclude>
-    <ClInclude Include="Texture2D.h" />
-    <ClInclude Include="IResource.h" />
     <ClInclude Include="DirectXWrapper.h">
       <Filter>Inner</Filter>
     </ClInclude>
+    <ClInclude Include="IResource.h">
+      <Filter>DirectX\Class\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture2D.h">
+      <Filter>DirectX\Class\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTargetView.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Device.cpp">
@@ -79,8 +84,15 @@
     <ClCompile Include="SwapChain.cpp">
       <Filter>DirectX\Class</Filter>
     </ClCompile>
-    <ClCompile Include="Texture2D.cpp" />
-    <ClCompile Include="IResource.cpp" />
-    <ClCompile Include="Struct.cpp" />
+    <ClCompile Include="Struct.cpp">
+      <Filter>DirectX\Struct</Filter>
+    </ClCompile>
+    <ClCompile Include="IResource.cpp">
+      <Filter>DirectX\Class\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture2D.cpp">
+      <Filter>DirectX\Class\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTargetView.cpp" />
   </ItemGroup>
 </Project>

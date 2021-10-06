@@ -160,10 +160,9 @@ namespace GoblinEngine
 		};
 
 
-		public ref class DepthStencilState : DirectXWrapper<ID3D11DepthStencilState>
+		public ref class DepthStencilState
 		{
-		public:
-			DepthStencilState(IntPtr unmanagedObject);
+			DECLARE_WRAPPED_INSTANCE(DepthStencilState, ID3D11DepthStencilState)
 		};
 
 
@@ -220,11 +219,84 @@ namespace GoblinEngine
 			};
 		};
 		
-		public ref class DepthStencilView : DirectXWrapper<ID3D11DepthStencilView>
+		public ref class DepthStencilView 
 		{
-		public:
-			DepthStencilView(IntPtr unmaagedObject);
+			DECLARE_WRAPPED_INSTANCE(DepthStencilView,ID3D11DepthStencilView)
 		};
+
+		public struct RTVBuffer
+		{
+			union
+			{
+				UINT FirstElement;
+				UINT ElementOffset;
+			};
+			union
+			{
+				UINT NumElements;
+				UINT ElementWidth;
+			};
+		};
+
+		public struct RTVTexture1D
+		{
+			UINT MipSlice;
+		};
+
+		public struct RTVTexture1DArray
+		{
+			UINT MipSlice;
+			UINT FirstArraySlice;
+			UINT ArraySize;
+		};
+
+		public struct RTVTexture2D
+		{
+			UINT MipSlice;
+		};
+
+		public struct RTVTexture2DMS
+		{
+			UINT UnusedField_NothingToDefine;
+		};
+
+		public struct RTVTexture2DArray
+		{
+			UINT MipSlice;
+			UINT FirstArraySlice;
+			UINT ArraySize;
+		};
+
+		public struct RTVTexture2DMSArray
+		{
+			UINT FirstArraySlice;
+			UINT ArraySize;
+		};
+
+		public struct RTVTexture3D
+		{
+			UINT MipSlice;
+			UINT FirstWSlice;
+			UINT WSize;
+		};
+
+		public struct RenderTargetViewDescription
+		{
+			GraphicFormat Format;
+			RTVDimension ViewDimension;
+			union
+			{
+				RTVBuffer Buffer;
+				RTVTexture1D Texture1D;
+				RTVTexture1DArray Texture1DArray;
+				RTVTexture2D Texture2D;
+				RTVTexture2DArray Texture2DArray;
+				RTVTexture2DMS Texture2DMS;
+				RTVTexture2DMSArray Texture2DMSArray;
+				RTVTexture3D Texture3D;
+			};
+		};
+
 
 	}
 }
